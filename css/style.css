@@ -1,4 +1,8 @@
 body, html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     margin: 0;
     padding: 0;
     height: 100%; 
@@ -53,9 +57,10 @@ a:hover {
 }
 
 .content-all {
-    margin-left: 75px;
-    margin-right: 75px;
-    margin-top: 1000px;
+    width: 70vw;
+    margin-top: 95vh;
+    margin-right: auto; 
+    margin-left: auto;
 }
 
 .kurzfilm {
@@ -65,7 +70,7 @@ a:hover {
 
 .video-wrapper {
     position: relative;
-    width: 75vw; /* oder eine andere Größe, die Sie für das Video festgelegt haben */
+    width: 100%; /* oder eine andere Größe, die Sie für das Video festgelegt haben */
     margin: auto;
 }
 
@@ -83,10 +88,6 @@ a:hover {
 /* Beispiel für Play- und Pause-Symbole (ersetzen Sie dies durch Ihre eigenen Symbole) */
 .video-overlay.play {
     content: '▶'; /* Play-Symbol */
-}
-
-.video-overlay.pause {
-    content: '⏸'; /* Pause-Symbol */
 }
 
 .video-controls {
@@ -142,21 +143,21 @@ p, li {
     color: grey;
 }
 
+.content-section {
+    padding-top: 100px;
+}
+
 .content-bachtel {
     display: flex;
     gap: 100px;
 }
 
-.content-section {
-    margin-top: 50px;
-    margin: 100px 100px 50px 100px;
-}
 
 /* KARUSEL */
 
 .carousel {
     position: relative;
-    max-width: 600px;
+    width: 70vw;
     margin: auto;
     overflow: hidden;
 }
