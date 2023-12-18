@@ -98,9 +98,9 @@ a:hover {
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.2);
-    transition: opacity 0.5s, visibility 0.5s;
     opacity: 0;
-    visibility: hidden;
+    pointer-events: none; /* Verhindert Klick-Events, wenn die Kontrollleiste ausgeblendet ist */
+    transition: opacity 0.5s;
 }
 
 .progress-container {

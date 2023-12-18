@@ -48,6 +48,7 @@ var progressBar = document.getElementById('progress-bar');
 var isMouseOverVideo = false;
 
 // Event-Listener für das Video
+// TODO: Video soll auch abgespielt werden, wenn man auf Playbutton oder um den Button klickt.
 meinKurzfilm.addEventListener('click', togglePlayPause);
 meinKurzfilm.addEventListener('play', onPlay);
 meinKurzfilm.addEventListener('pause', onPause);
@@ -102,7 +103,27 @@ function updateProgressBar() {
 }
 
 function toggleFullScreen() {
-    // Vollbild-Logik hier...
+    if (!document.fullscreenElement) {
+        if (meinKurzfilm.requestFullscreen) {
+            meinKurzfilm.requestFullscreen();
+        } else if (meinKurzfilm.mozRequestFullScreen) { /* Firefox */
+            meinKurzfilm.mozRequestFullScreen();
+        } else if (meinKurzfilm.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            meinKurzfilm.webkitRequestFullscreen();
+        } else if (meinKurzfilm.msRequestFullscreen) { /* IE/Edge */
+            meinKurzfilm.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { /* Firefox */
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE/Edge */
+            document.msExitFullscreen();
+        }
+    }
 }
 
 function seekVideo(e) {
@@ -115,12 +136,12 @@ function seekVideo(e) {
 
 function showControls() {
     videoControls.style.opacity = '1';
-    videoControls.style.visibility = 'visible';
+    videoControls.style.pointerEvents = 'all'; /* Ermöglicht Klick-Events */
 }
 
 function hideControls() {
     videoControls.style.opacity = '0';
-    videoControls.style.visibility = 'hidden';
+    videoControls.style.pointerEvents = 'none'; /* Verhindert Klick-Events */
 }
 
 
