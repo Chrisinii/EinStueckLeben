@@ -62,6 +62,31 @@ a:hover {
     width: 75vw;
 }
 
+.video-wrapper {
+    position: relative;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px; /* Anpassen nach Bedarf */
+    display: none; /* Standardmäßig versteckt */
+    color: white; /* Farbe des Symbols */
+    font-size: 5em;
+}
+
+/* Beispiel für Play- und Pause-Symbole (ersetzen Sie dies durch Ihre eigenen Symbole) */
+.video-overlay.play {
+    content: '▶'; /* Play-Symbol */
+}
+
+.video-overlay.pause {
+    content: '⏸'; /* Pause-Symbol */
+}
+
+
 h2, h3 {
     font-family: "hobeaux", sans-serif;
     font-weight: 500;

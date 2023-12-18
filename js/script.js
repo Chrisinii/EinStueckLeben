@@ -37,12 +37,34 @@ function draw() {
 
 // Kurzfilm 
 
-document.getElementById('meinKurzfilm').addEventListener('click', function() {
+var meinKurzfilm = document.getElementById('meinKurzfilm');
+var videoOverlay = document.getElementById('video-overlay');
+
+// Initial anzeigen des Play-Symbols beim Laden der Seite
+window.onload = function() {
+    videoOverlay.textContent = '▶'; // Play-Symbol
+    videoOverlay.style.display = 'block';
+};
+
+meinKurzfilm.addEventListener('click', function() {
     if (this.paused) {
         this.play();
+        videoOverlay.textContent = '⏸'; // Pause-Symbol
+        videoOverlay.style.display = 'block';
     } else {
         this.pause();
+        videoOverlay.textContent = '▶'; // Play-Symbol
+        videoOverlay.style.display = 'block';
     }
+});
+
+meinKurzfilm.addEventListener('play', function() {
+    videoOverlay.style.display = 'none';
+});
+
+meinKurzfilm.addEventListener('pause', function() {
+    videoOverlay.textContent = '▶'; // Play-Symbol
+    videoOverlay.style.display = 'block';
 });
 
 // KARUSEL
