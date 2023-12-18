@@ -37,53 +37,92 @@ function draw() {
 
 // Kurzfilm 
 
+// Zugriff auf Elemente
 var meinKurzfilm = document.getElementById('meinKurzfilm');
 var videoOverlay = document.getElementById('video-overlay');
-
-// Initial anzeigen des Play-Symbols beim Laden der Seite
-window.onload = function() {
-    videoOverlay.textContent = '▶'; // Play-Symbol
-    videoOverlay.style.display = 'block';
-};
-
-meinKurzfilm.addEventListener('click', function() {
-    if (this.paused) {
-        this.play();
-        videoOverlay.textContent = '⏸'; // Pause-Symbol
-        videoOverlay.style.display = 'block';
-    } else {
-        this.pause();
-        videoOverlay.textContent = '▶'; // Play-Symbol
-        videoOverlay.style.display = 'block';
-    }
-});
-
-meinKurzfilm.addEventListener('play', function() {
-    videoOverlay.style.display = 'none';
-});
-
-meinKurzfilm.addEventListener('pause', function() {
-    videoOverlay.textContent = '▶'; // Play-Symbol
-    videoOverlay.style.display = 'block';
-});
-
+var videoWrapper = document.getElementsByClassName('video-wrapper')[0];
+var videoControls = document.getElementsByClassName('video-controls')[0];
 var progressBar = document.getElementById('progress-bar');
 
+// Zustandsvariable, um zu prüfen, ob die Maus über dem Video ist
+var isMouseOverVideo = false;
+
+// Event-Listener für das Video
+meinKurzfilm.addEventListener('click', togglePlayPause);
+meinKurzfilm.addEventListener('play', onPlay);
+meinKurzfilm.addEventListener('pause', onPause);
 meinKurzfilm.addEventListener('timeupdate', updateProgressBar);
+
+// Event-Listener für die Kontrollleiste
+videoWrapper.addEventListener('mouseenter', function() {
+    isMouseOverVideo = true;
+    showControls();
+});
+videoWrapper.addEventListener('mouseleave', function() {
+    isMouseOverVideo = false;
+    hideControls();
+});
+
+// Event-Listener für den Vollbild-Button und ProgressBar
+document.getElementById('fullscreen-btn').addEventListener('click', toggleFullScreen);
+progressBar.parentNode.addEventListener('click', seekVideo);
+
+// Initialisieren beim Laden der Seite
+window.onload = function() {
+    showPlayIcon();
+    hideControls();
+};
+
+function togglePlayPause() {
+    if (meinKurzfilm.paused) {
+        meinKurzfilm.play();
+    } else {
+        meinKurzfilm.pause();
+    }
+}
+
+function onPlay() {
+    videoOverlay.style.display = 'none';
+    if (!isMouseOverVideo) hideControls();
+}
+
+function onPause() {
+    showPlayIcon();
+    if (isMouseOverVideo) showControls();
+}
+
+function showPlayIcon() {
+    videoOverlay.textContent = '▶'; // Play-Symbol
+    videoOverlay.style.display = 'block';
+}
 
 function updateProgressBar() {
     var percentage = (meinKurzfilm.currentTime / meinKurzfilm.duration) * 100;
     progressBar.style.width = percentage + '%';
 }
 
-// Zum Springen im Video
-progressBar.parentNode.addEventListener('click', function(e) {
-    var width = this.offsetWidth; // Breite des Elternelements (Progress Bar Container)
-    var rect = this.getBoundingClientRect(); // Position des Elements relativ zum Viewport
-    var pos = (e.clientX - rect.left) / width; // Berechnen der relativen Position des Klicks
-    pos = Math.max(0, Math.min(1, pos)); // Sicherstellen, dass pos zwischen 0 und 1 liegt
+function toggleFullScreen() {
+    // Vollbild-Logik hier...
+}
+
+function seekVideo(e) {
+    var width = this.offsetWidth;
+    var rect = this.getBoundingClientRect();
+    var pos = (e.clientX - rect.left) / width;
+    pos = Math.max(0, Math.min(1, pos));
     meinKurzfilm.currentTime = pos * meinKurzfilm.duration;
-});
+}
+
+function showControls() {
+    videoControls.style.opacity = '1';
+    videoControls.style.visibility = 'visible';
+}
+
+function hideControls() {
+    videoControls.style.opacity = '0';
+    videoControls.style.visibility = 'hidden';
+}
+
 
 
 // KARUSEL

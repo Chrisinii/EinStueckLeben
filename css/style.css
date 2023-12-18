@@ -90,14 +90,21 @@ a:hover {
 }
 
 .video-controls {
-    position: absolute;
-    bottom: 10;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
-    /* padding: 5px; */
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.progress-container {
+    flex-grow: 1; /* Lässt den Progress-Container den verfügbaren Raum einnehmen */
 }
 
 .progress-bar {
@@ -105,6 +112,20 @@ a:hover {
     width: 0;
     background: blue;
     transition: width 0.25s;
+}
+
+#fullscreen-btn {
+    margin-left: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Optional: Stil für den Hover-Effekt */
+#fullscreen-btn:hover {
+    background: #444;
 }
 
 
