@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bachtel-Test</title>
 
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/exj0rnc.css">
     <link rel="stylesheet" href="https://use.typekit.net/exj0rnc.css">
-    
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,6 +21,12 @@
             <a href="#umsetzung">Umsetzung</a> 
             <a href="#team">Das Team</a>
         </header>
+
+        <video id="video" autoplay loop muted>
+            <source src="img/placeholder.webm" type="video/webm">
+        </video>
+        <canvas id="canvas"></canvas>
+        
         
         <div class="content-section" id="kurzfilm">
             <h2>Der Kurzfilm</h2>
@@ -31,9 +40,29 @@
         
         <div class="content-section" id="umsetzung">
             <h2>Umsetzung</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, velit. Velit sapiente voluptas nulla dolorum quidem debitis est! Mollitia iste alias, asperiores provident doloribus neque deserunt sunt veritatis harum expedita beatae quod sapiente voluptatum qui, delectus officia nostrum natus dolore laboriosam. Similique ducimus, iusto maiores minima illo optio, distinctio sequi blanditiis atque eaque nam placeat, rerum exercitationem eum aspernatur magni facilis assumenda omnis quidem est necessitatibus? Unde consequatur tenetur ipsum, aspernatur dignissimos hic deleniti sunt corrupti totam natus modi laudantium delectus tempore dolorum dolore aut rem ad voluptas facilis perferendis! Debitis eveniet repellendus esse quam nihil, harum magnam dolor ipsa tenetur. Consequuntur eveniet delectus, id eum libero quaerat quos quo ipsam nulla esse soluta incidunt debitis atque porro consequatur est nostrum illum blanditiis iusto natus nam earum commodi. Laudantium ex eveniet, fuga dignissimos ducimus odit consectetur pariatur vel animi aliquid consequatur dolorum itaque, harum delectus rerum, magnam maxime. Porro maxime id fugit numquam repellendus fuga. Ducimus totam reprehenderit aperiam velit culpa dignissimos, aspernatur dolorem fugiat impedit. Culpa impedit maiores dolor aperiam harum consequuntur blanditiis beatae nemo facilis? Velit tenetur quod nihil vel dolor eos, recusandae explicabo quas ut accusantium natus nemo exercitationem, rerum consequuntur, pariatur consequatur voluptatum doloribus nulla! Praesentium repellat deleniti, accusamus dignissimos fugit ratione quaerat sapiente velit beatae corrupti. Sint voluptatibus debitis adipisci voluptatem molestiae. Facere nobis exercitationem maiores animi enim deserunt ea sed quas, autem doloremque recusandae. Odit eius, impedit, amet sed ea culpa commodi placeat officiis reiciendis repellat quia! Asperiores, incidunt? Ducimus, a consequatur! Quisquam officia qui, nam aperiam aspernatur quam? Eius numquam ea illo doloremque dolor? Expedita voluptas voluptatibus porro totam consectetur? Sit molestias perspiciatis maxime doloremque et velit labore repudiandae officiis iste? Aperiam temporibus perferendis eum eligendi. Illum necessitatibus facere recusandae fugiat, autem ipsa explicabo! Quod, sit. Ipsa reiciendis obcaecati ad molestiae excepturi iure blanditiis, similique porro voluptas enim eveniet laudantium aperiam eligendi dolore magni maiores rem! Earum debitis dolorem velit consectetur culpa, id cumque iste sed molestias minima vitae maiores odit doloribus nemo ipsam. Consequuntur rerum assumenda velit doloremque repellat nihil sint. Vel qui sit nostrum illo neque, cumque optio esse aperiam nemo earum incidunt fugiat molestias? Magni atque id dicta nemo, ea in error sed quaerat perspiciatis voluptates neque odio adipisci, debitis rem repellendus quas sint illo dolore. Odit laudantium labore atque cumque quas eaque quibusdam velit quasi, corporis vero. Amet voluptatem iusto quos necessitatibus aspernatur nisi accusantium sint suscipit commodi, illum, dolor veniam doloribus rem quas odio aliquid iure omnis totam! Laborum dolorum voluptate autem nemo perferendis necessitatibus cumque maxime, reprehenderit numquam facilis? Cum accusamus vero eum facere sint aspernatur corporis similique minima, ratione obcaecati quis possimus repudiandae! Dolores facere dolorem itaque, velit quam eum magnam, dolorum vero placeat, officia praesentium corporis fuga deleniti nisi nulla quos! Quibusdam fugit commodi ipsam odit soluta excepturi neque, quae dolorum repellat deserunt quidem facilis totam debitis cupiditate inventore, corrupti ipsum. Eos, at! Inventore quibusdam in reiciendis quod nihil quasi quo porro velit incidunt, facere distinctio, doloribus maxime quam ipsam illo optio consectetur! Nihil, quidem.</p>
-        </div>
-        
+            <h3>Idee</h3>
+            <p>Charakter 1 (Alina):</p>
+            <p>Charakter 2 (Mae):</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, optio expedita porro aut velit debitis incidunt suscipit similique iusto voluptatibus obcaecati voluptatum at fugit, exercitationem quaerat voluptatem aliquam illo quisquam.</p>
+            <h3>Pre-Produktion</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi doloribus eum magni eaque possimus dolorem delectus atque quasi iusto ipsa.</p>
+            <h3>Produktion</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, maxime!</p>
+            <div class="carousel">
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <div class="carousel-slides">
+                    <!-- Füge hier deine Bilder ein -->
+                    <img src="img/Karusel/Bild1.webp" style="width:100%">
+                    <img src="img/Karusel/Bild2.webp" style="width:100%">
+                    <img src="img/Karusel/Bild3.webp" style="width:100%">
+                    <img src="img/Karusel/Bild4.webp" style="width:100%">
+                    <!-- Weitere Bilder... -->
+                </div>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+            <h3>Post-Produktion</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, nesciunt.</p>
+
         <div class="content-section" id="team">
             <h2>Das Team</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illo deleniti, recusandae culpa expedita inventore consequatur ea non beatae necessitatibus, facilis id distinctio praesentium soluta. Vitae ipsa sunt at inventore voluptatem eligendi modi ipsum alias. Laboriosam quae id libero blanditiis nemo consectetur autem aliquid provident! Adipisci ab praesentium corrupti est.</p>

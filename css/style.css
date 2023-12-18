@@ -1,4 +1,7 @@
-body {
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
     background-color: whitesmoke;
 }
 
@@ -10,6 +13,7 @@ body {
     color: white;
     text-align: center;
     padding: 20px;
+    z-index: 100;
 }
 
 a {
@@ -24,6 +28,28 @@ a {
 
 a:hover {
     color: blue
+}
+
+#video, #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+#canvas {
+    z-index: 2; 
+    color: whitesmoke;
+}
+
+.cutout-text {
+    font-size: 60px;
+    font-weight: bold;
+    background-image: url('img/Placeholder.webp');
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent;
 }
 
 h2 {
@@ -42,4 +68,38 @@ p {
 .content-section {
     margin-top: 50px;
     margin: 100px 100px 50px 100px;
+}
+
+/* KARUSEL */
+
+.carousel {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-slides img {
+    width: 100%;
+    display: none;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+}
+
+.carousel .prev {
+    left: 0;
+}
+
+.carousel .next {
+    right: 0;
 }
