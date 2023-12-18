@@ -59,11 +59,14 @@ a:hover {
 }
 
 .kurzfilm {
-    width: 75vw;
+    width: 100%; /* Macht das Video so breit wie den video-wrapper */
+    display: block;
 }
 
 .video-wrapper {
     position: relative;
+    width: 75vw; /* oder eine andere Größe, die Sie für das Video festgelegt haben */
+    margin: auto;
 }
 
 .video-overlay {
@@ -84,6 +87,24 @@ a:hover {
 
 .video-overlay.pause {
     content: '⏸'; /* Pause-Symbol */
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 10;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    /* padding: 5px; */
+}
+
+.progress-bar {
+    height: 5px;
+    width: 0;
+    background: blue;
+    transition: width 0.25s;
 }
 
 

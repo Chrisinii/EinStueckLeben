@@ -67,6 +67,25 @@ meinKurzfilm.addEventListener('pause', function() {
     videoOverlay.style.display = 'block';
 });
 
+var progressBar = document.getElementById('progress-bar');
+
+meinKurzfilm.addEventListener('timeupdate', updateProgressBar);
+
+function updateProgressBar() {
+    var percentage = (meinKurzfilm.currentTime / meinKurzfilm.duration) * 100;
+    progressBar.style.width = percentage + '%';
+}
+
+// Zum Springen im Video
+progressBar.parentNode.addEventListener('click', function(e) {
+    var width = this.offsetWidth; // Breite des Elternelements (Progress Bar Container)
+    var rect = this.getBoundingClientRect(); // Position des Elements relativ zum Viewport
+    var pos = (e.clientX - rect.left) / width; // Berechnen der relativen Position des Klicks
+    pos = Math.max(0, Math.min(1, pos)); // Sicherstellen, dass pos zwischen 0 und 1 liegt
+    meinKurzfilm.currentTime = pos * meinKurzfilm.duration;
+});
+
+
 // KARUSEL
 
 let slideIndex = 0;
