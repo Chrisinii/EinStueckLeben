@@ -129,8 +129,28 @@ a:hover {
     background: #444;
 }
 
+h2 {
+    font-family: "hobeaux", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: white; /* Weiße Schriftfarbe */
+    position: relative; /* Für das Positionieren des Pseudo-Elements */
+    display: inline-block; /* Damit das Pseudo-Element korrekt positioniert wird */
+    margin-bottom: 20px;
+}
 
-h2, h3 {
+h2::before {
+    content: ""; /* Notwendig für Pseudo-Elemente */
+    position: absolute; /* Absolutes Positionieren relativ zum h2-Tag */
+    left: -20%; /* Leichte Verschiebung nach links für den Stil */
+    width: 140%; /* Breiter als der Text */
+    height: 120%; /* Volle Höhe des Textes */
+    background-color: black; /* Schwarze Hintergrundfarbe */
+    z-index: -1; /* Hinter dem Text */
+    transform: rotate(-4deg); /* Leichte Drehung */
+}
+
+h3 {
     font-family: "hobeaux", sans-serif;
     font-weight: 500;
     font-style: normal;
@@ -185,4 +205,63 @@ p, li {
 
 .carousel .next {
     right: 0;
+}
+
+
+/* TEAM */
+
+/* TODO: Grid untereinander und liste rechts und links ausrichten / Liste wie mit Tabulator */
+
+.team-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Teilt den Container in zwei Spalten */
+    grid-template-rows: 1fr 1fr; /* Teilt den Container in zwei Reihen */
+    height: 50vh; /* Setzt die Höhe des Containers */
+    width: 100%; /* Setzt die Breite des Containers */
+    margin-bottom: 10vh;
+}
+
+.definition-list {
+    display: grid;
+    gap: 10px; /* Abstand zwischen den Reihen */
+    margin: 20px 0;
+}
+
+.term-description {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Erste Spalte für dt, zweite Spalte für dd */
+    align-items: start; /* Ausrichtung der Elemente am Anfang */
+}
+
+.team-image {
+    grid-column: 2 / 3; /* Platziert das Bild in der zweiten Spalte */
+    grid-row: 2 / 3; /* Platziert das Bild in der zweiten Reihe */
+    display: flex;
+    justify-content: flex-end; /* Richtet das Bild am rechten Rand aus */
+    align-items: flex-end; /* Richtet das Bild am unteren Rand aus */
+}
+
+.team-image img {
+    max-width: 100%; /* Stellt sicher, dass das Bild innerhalb seiner Zelle bleibt */
+    height: auto; /* Behält das Seitenverhältnis des Bildes bei */
+}
+
+dl {
+    padding: 0;
+    margin: 20px 0;
+}
+
+.term-description {
+    display: flex;
+    gap: 20px; /* Abstand zwischen Begriff und Beschreibung */
+    margin-bottom: 10px; /* Abstand zwischen den einzelnen Term-Beschreibung-Paaren */
+}
+
+dt {
+    font-weight: bold;
+    padding-right: 20px; /* Abstand zwischen dt und dd */
+}
+
+dd {
+    margin: 0;
 }

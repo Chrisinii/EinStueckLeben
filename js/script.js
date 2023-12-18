@@ -30,7 +30,7 @@ function draw() {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     ctx.globalCompositeOperation = 'destination-out';
-    ctx.fillText('Empathie', centerX, centerY);
+    ctx.fillText('TITEL', centerX, centerY);
 
     requestAnimationFrame(draw);
 }
