@@ -52,17 +52,28 @@ a:hover {
     color: transparent;
 }
 
-h2 {
+.content-all {
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 1000px;
+}
+
+h2, h3 {
     font-family: "hobeaux", sans-serif;
     font-weight: 500;
     font-style: normal;
 }
 
-p {
+p, li {
     font-family: "kanit", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: grey;
+}
+
+.content-bachtel {
+    display: flex;
+    gap: 100px;
 }
 
 .content-section {
