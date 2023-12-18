@@ -35,7 +35,15 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
+// Kurzfilm 
 
+document.getElementById('meinKurzfilm').addEventListener('click', function() {
+    if (this.paused) {
+        this.play();
+    } else {
+        this.pause();
+    }
+});
 
 // KARUSEL
 

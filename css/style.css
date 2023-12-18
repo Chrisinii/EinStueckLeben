@@ -58,6 +58,10 @@ a:hover {
     margin-top: 1000px;
 }
 
+.kurzfilm {
+    width: 75vw;
+}
+
 h2, h3 {
     font-family: "hobeaux", sans-serif;
     font-weight: 500;
