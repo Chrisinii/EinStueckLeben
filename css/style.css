@@ -50,7 +50,7 @@ a:hover {
 .cutout-text {
     font-size: 60px;
     font-weight: bold;
-    background-image: url('img/Placeholder.webp');
+    background-image: url('img/Ein-Stueck-Leben_COLOR.webm');
     -webkit-background-clip: text; 
     background-clip: text; 
     color: transparent;
@@ -141,7 +141,6 @@ h2 {
     color: white; /* Weiße Schriftfarbe */
     position: relative; /* Für das Positionieren des Pseudo-Elements */
     display: inline-block; /* Damit das Pseudo-Element korrekt positioniert wird */
-    margin-bottom: 20px;
 }
 
 h2::before {
@@ -157,10 +156,20 @@ h2::before {
 
 h3 {
     font-family: "hobeaux", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: black;
+    padding-top: 30px;
+}
+
+/* h4 {
+    font-family: "hobeaux", sans-serif;
     font-weight: 500;
     font-style: normal;
     color: grey;
-}
+    text-decoration-line: underline;
+    padding-top: 30px;
+} */
 
 p, li, dt, dd {
     font-family: "kanit", sans-serif;
@@ -179,12 +188,22 @@ p, li, dt, dd {
     gap: 100px;
 }
 
+.brainwritting {
+    width: 35vw;
+    border-radius: 10%;
+}
+
+.planung {
+    display: flex;
+    gap: 50px;
+}
 
 /* KARUSEL */
 
 .carousel {
     position: relative;
-    width: 70vw;
+    padding-top: 30px;
+    width: 60vw;
     margin: auto;
     overflow: hidden;
 }
@@ -192,6 +211,7 @@ p, li, dt, dd {
 .carousel-slides img {
     width: 100%;
     display: none;
+    border-radius: 50px;
 }
 
 .carousel button {
@@ -224,16 +244,20 @@ footer {
     width: 100vw; 
     height: 100vh;
     background-color: black;
-    padding: 20px;
+    /* padding: 20px; */
     box-sizing: border-box;
     left: 0;
     right: 0;
+    bottom: 0;
     margin-top: 200px;
     padding-bottom: 200px;
+    margin-bottom: 500px;
 }
 
 .team-container {
     position: relative; /* Relative Positionierung innerhalb des Footers */
+    display: flex;
+    flex-direction: column;
     width: 70vh; 
     margin: 0 auto;
     padding-top: 100px;
@@ -241,7 +265,7 @@ footer {
 
 .definition-list {
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 3fr;
     column-gap: 5px; /* Verringern Sie den Spaltenabstand */
     row-gap: 5px;
 }
@@ -266,14 +290,14 @@ dd {
 .team-image {
     width: 100%;
     text-align: right;
-    margin-top: 100px; /* Abstand zum oberen Element */
-    margin-left: auto; /* Zentriert das Bild auf der rechten Seite */
+    margin-top: 100px; 
+    margin-left: auto;
 }
 
 .team-image img {
     width: 100%;
-    height: auto;
-    max-width: 1500px; /* Anpassung der Bildgröße */
+    max-width: 1500px; 
+    border-radius: 50px;
 }
 
 .title-page {
@@ -286,7 +310,7 @@ dd {
     z-index: 9999; /* Stellen sicher, dass der Titel über allem liegt */
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1250px) {
     #canvas {
       display: none;
     }
