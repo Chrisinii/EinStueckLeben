@@ -31,7 +31,7 @@ a {
 }
 
 a:hover {
-    color: blue
+    color: yellowgreen;
 }
 
 #video, #canvas {
@@ -57,10 +57,8 @@ a:hover {
 }
 
 .content-all {
-    width: 70vw;
     margin-top: 95vh;
-    margin-right: auto; 
-    margin-left: auto;
+    max-width: 70vw; 
 }
 
 .kurzfilm {
@@ -111,7 +109,7 @@ a:hover {
 .progress-bar {
     height: 5px;
     width: 0;
-    background: blue;
+    background: yellowgreen;
     transition: width 0.25s;
 }
 
@@ -127,6 +125,13 @@ a:hover {
 /* Optional: Stil für den Hover-Effekt */
 #fullscreen-btn:hover {
     background: #444;
+}
+
+h1 {
+    font-family: "outfit", sans-serif;
+    font-size: 20vw;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 
 h2 {
@@ -154,9 +159,10 @@ h3 {
     font-family: "hobeaux", sans-serif;
     font-weight: 500;
     font-style: normal;
+    color: grey;
 }
 
-p, li {
+p, li, dt, dd {
     font-family: "kanit", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -169,6 +175,7 @@ p, li {
 
 .content-bachtel {
     display: flex;
+    flex-direction: row;
     gap: 100px;
 }
 
@@ -212,56 +219,103 @@ p, li {
 
 /* TODO: Grid untereinander und liste rechts und links ausrichten / Liste wie mit Tabulator */
 
+footer {
+    position: relative; 
+    width: 100vw; 
+    height: 100vh;
+    background-color: black;
+    padding: 20px;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+    margin-top: 200px;
+}
+
 .team-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Teilt den Container in zwei Spalten */
-    grid-template-rows: 1fr 1fr; /* Teilt den Container in zwei Reihen */
-    height: 50vh; /* Setzt die Höhe des Containers */
-    width: 100%; /* Setzt die Breite des Containers */
-    margin-bottom: 10vh;
+    position: relative; /* Relative Positionierung innerhalb des Footers */
+    width: 70vh; 
+    margin: 0 auto;
+    padding-top: 100px;
 }
 
 .definition-list {
     display: grid;
-    gap: 10px; /* Abstand zwischen den Reihen */
-    margin: 20px 0;
+    grid-template-columns: 1fr 6fr;
+    column-gap: 5px; /* Verringern Sie den Spaltenabstand */
+    row-gap: 5px;
 }
 
 .term-description {
-    display: grid;
-    grid-template-columns: auto 1fr; /* Erste Spalte für dt, zweite Spalte für dd */
-    align-items: start; /* Ausrichtung der Elemente am Anfang */
-}
-
-.team-image {
-    grid-column: 2 / 3; /* Platziert das Bild in der zweiten Spalte */
-    grid-row: 2 / 3; /* Platziert das Bild in der zweiten Reihe */
-    display: flex;
-    justify-content: flex-end; /* Richtet das Bild am rechten Rand aus */
-    align-items: flex-end; /* Richtet das Bild am unteren Rand aus */
-}
-
-.team-image img {
-    max-width: 100%; /* Stellt sicher, dass das Bild innerhalb seiner Zelle bleibt */
-    height: auto; /* Behält das Seitenverhältnis des Bildes bei */
-}
-
-dl {
-    padding: 0;
-    margin: 20px 0;
-}
-
-.term-description {
-    display: flex;
-    gap: 20px; /* Abstand zwischen Begriff und Beschreibung */
-    margin-bottom: 10px; /* Abstand zwischen den einzelnen Term-Beschreibung-Paaren */
+    display: contents;
 }
 
 dt {
+    grid-column: 1;
     font-weight: bold;
-    padding-right: 20px; /* Abstand zwischen dt und dd */
+    color: white; /* Farbe der Namen */
+    width: 200px;
 }
 
 dd {
-    margin: 0;
+    grid-column: 2;
+    text-align: left;
+    color: white; /* Farbe der Rollen */
 }
+
+.team-image {
+    width: 100%;
+    text-align: right;
+    margin-top: 100px; /* Abstand zum oberen Element */
+    margin-left: auto; /* Zentriert das Bild auf der rechten Seite */
+}
+
+.team-image img {
+    width: 100%;
+    height: auto;
+    max-width: 1500px; /* Anpassung der Bildgröße */
+}
+
+.title-page {
+    display: none; /* Standardmäßig ausblenden */
+    padding-top: 30vh;
+    color: black; /* Schriftfarbe auf Schwarz ändern */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Stellen sicher, dass der Titel über allem liegt */
+}
+
+@media (max-width: 1450px) {
+    #canvas {
+      display: none;
+    }
+  
+    #video {
+      display: none;
+    }
+  
+    .title-page {
+      display: block;
+      width: 100%;
+    }
+
+    .content-all {
+        width: auto; 
+        margin-right: auto; 
+        margin-left: auto;
+        max-width: 70vw; 
+        margin-top: 25vh;
+    }
+
+    .content-bachtel {
+        display: flex;
+        flex-direction: column;
+    }
+    
+  }
+
+  @media (max-width: 800px) {
+    header {
+        display: none;
+    }
+  }
