@@ -11,27 +11,6 @@ video.addEventListener('loadeddata', () => {
     requestAnimationFrame(draw);
 });
 
-// function checkCanvasWidth() {
-//     canvas.width = video.videoWidth;
-//     canvas.height = video.videoHeight;
-
-//     if (canvas.width <= 1015) {
-//         canvas.style.display = 'none'; // Canvas ausblenden
-//         video.style.display = 'none'; // Video ausblenden
-//         document.querySelector('.title-page').style.display = 'block'; // Titelseite anzeigen
-//     } else {
-//         canvas.style.display = 'block'; // Canvas anzeigen
-//         video.style.display = 'block'; // Video anzeigen
-//         document.querySelector('.title-page').style.display = 'none'; // Titelseite ausblenden
-//     }
-// }
-
-// // Event listener for the 'resize' event
-// window.addEventListener('resize', checkCanvasWidth);
-
-// // Initial check when the page loads
-// checkCanvasWidth();
-
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -40,7 +19,7 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Texteinstellungen
-    ctx.font = '350px Outfit'; // Reduziere die Schriftgröße
+    ctx.font = '330px Outfit'; // Reduziere die Schriftgröße
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
@@ -54,10 +33,10 @@ function draw() {
     ctx.globalCompositeOperation = 'destination-out';
 
     // Zeichne den ersten Text auf der oberen Zeile
-    ctx.fillText(text1, centerX, centerY - 150);
+    ctx.fillText(text1, centerX, centerY - 135);
 
     // Zeichne den zweiten Text auf der unteren Zeile
-    ctx.fillText(text2, centerX, centerY + 150);
+    ctx.fillText(text2, centerX, centerY + 135);
 
     requestAnimationFrame(draw);
 }
@@ -171,28 +150,6 @@ function hideControls() {
     videoControls.style.pointerEvents = 'none'; /* Verhindert Klick-Events */
 }
 
-
-// API BACHTEL-Test
-
-async function fetchMovieData(title) {
-    const response = await fetch(`http://bechdeltest.com/api/v1/getMoviesByTitle?title=${encodeURIComponent(title)}`);
-    const data = await response.json();
-    return data;
-}
-
-function checkBechdelTest() {
-    const title = document.getElementById('movieTitle').value;
-    fetchMovieData(title).then(movies => {
-        if (movies.length > 0) {
-            // Annahme: Wir nehmen das erste Suchergebnis
-            const movie = movies[0];
-            const resultText = movie.rating === '3' ? 'hat den Bechdel Test bestanden' : 'hat den Bechdel Test nicht bestanden';
-            document.getElementById('result').innerText = `${movie.title} (${movie.year}) ${resultText}`;
-        } else {
-            document.getElementById('result').innerText = 'Film nicht gefunden.';
-        }
-    });
-}
 
 
 // KARUSEL
