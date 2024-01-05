@@ -41,7 +41,7 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-// Kurzfilm 
+// Kurzfilm 1
 
 // Zugriff auf Elemente
 var meinKurzfilm = document.getElementById('meinKurzfilm');
@@ -78,6 +78,8 @@ progressBar.parentNode.addEventListener('click', seekVideo);
 window.onload = function() {
     showPlayIcon();
     hideControls();
+    showPlayIcon2();
+    hideControls2();
 };
 
 function togglePlayPause() {
@@ -150,7 +152,109 @@ function hideControls() {
     videoControls.style.pointerEvents = 'none'; /* Verhindert Klick-Events */
 }
 
+// Kurzfilm 2
 
+// Zugriff auf Elemente für das zweite Video
+var meinKurzfilm2 = document.getElementById('meinKurzfilm2'); // Ändern Sie die ID entsprechend
+var videoOverlay2 = document.getElementById('video-overlay2'); // Ändern Sie die ID entsprechend
+var videoWrapper2 = document.querySelector('#kurzfilm2 .video-wrapper'); // Ändern Sie die ID entsprechend
+var videoControls2 = document.querySelector('#kurzfilm2 .video-controls'); // Ändern Sie die ID entsprechend
+var progressBar2 = document.getElementById('progress-bar2'); // Ändern Sie die ID entsprechend
+
+// Zustandsvariable für das zweite Video
+var isMouseOverVideo2 = false;
+
+// Event-Listener für das zweite Video
+meinKurzfilm2.addEventListener('click', togglePlayPause2); // Ändern Sie die ID entsprechend
+meinKurzfilm2.addEventListener('play', onPlay2); // Ändern Sie die ID entsprechend
+meinKurzfilm2.addEventListener('pause', onPause2); // Ändern Sie die ID entsprechend
+meinKurzfilm2.addEventListener('timeupdate', updateProgressBar2); // Ändern Sie die ID entsprechend
+
+// Event-Listener für die Kontrollleiste des zweiten Videos
+videoWrapper2.addEventListener('mouseenter', function() {
+    isMouseOverVideo2 = true;
+    showControls2();
+});
+videoWrapper2.addEventListener('mouseleave', function() {
+    isMouseOverVideo2 = false;
+    hideControls2();
+});
+
+// Event-Listener für den Vollbild-Button und ProgressBar des zweiten Videos
+document.getElementById('fullscreen-btn2').addEventListener('click', toggleFullScreen2); // Ändern Sie die ID entsprechend
+progressBar2.parentNode.addEventListener('click', seekVideo2); // Ändern Sie die ID entsprechend
+
+// Funktionen für das zweite Video
+
+function togglePlayPause2() {
+    if (meinKurzfilm2.paused) {
+        meinKurzfilm2.play();
+    } else {
+        meinKurzfilm2.pause();
+    }
+}
+
+function onPlay2() {
+    videoOverlay2.style.display = 'none';
+    if (!isMouseOverVideo2) hideControls2();
+}
+
+function onPause2() {
+    showPlayIcon2();
+    if (isMouseOverVideo2) showControls2();
+}
+
+function showPlayIcon2() {
+    videoOverlay2.textContent = '▶'; // Play-Symbol
+    videoOverlay2.style.display = 'block';
+}
+
+function updateProgressBar2() {
+    var percentage = (meinKurzfilm2.currentTime / meinKurzfilm2.duration) * 100;
+    progressBar2.style.width = percentage + '%';
+}
+
+function toggleFullScreen2() {
+    if (!document.fullscreenElement) {
+        if (meinKurzfilm2.requestFullscreen) {
+            meinKurzfilm2.requestFullscreen();
+        } else if (meinKurzfilm2.mozRequestFullScreen) { /* Firefox */
+            meinKurzfilm2.mozRequestFullScreen();
+        } else if (meinKurzfilm2.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            meinKurzfilm2.webkitRequestFullscreen();
+        } else if (meinKurzfilm2.msRequestFullscreen) { /* IE/Edge */
+            meinKurzfilm2.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { /* Firefox */
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE/Edge */
+            document.msExitFullscreen();
+        }
+    }
+}
+
+function seekVideo2(e) {
+    var width = this.offsetWidth;
+    var rect = this.getBoundingClientRect();
+    var pos = (e.clientX - rect.left) / width;
+    pos = Math.max(0, Math.min(1, pos));
+    meinKurzfilm2.currentTime = pos * meinKurzfilm2.duration;
+}
+
+function showControls2() {
+    videoControls2.style.opacity = '1';
+    videoControls2.style.pointerEvents = 'all'; /* Ermöglicht Klick-Events */
+}
+
+function hideControls2() {
+    videoControls2.style.opacity = '0';
+    videoControls2.style.pointerEvents = 'none'; /* Verhindert Klick-Events */
+}
 
 // KARUSEL
 
@@ -171,3 +275,17 @@ function showSlides(n) {
     }
     slides[slideIndex].style.display = "block";
 }
+
+// TEAM BILD
+
+document.addEventListener('DOMContentLoaded', function () {
+    var teamImage = document.getElementById('teamImage');
+
+    teamImage.addEventListener('mouseenter', function() {
+        teamImage.src = 'img/Team/lustig.webp'; // Pfad zu Ihrem neuen Bild
+    });
+
+    teamImage.addEventListener('mouseleave', function() {
+        teamImage.src = 'img/Team/team.webp'; // Pfad zurück zum ursprünglichen Bild
+    });
+});
