@@ -54,7 +54,6 @@ var progressBar = document.getElementById('progress-bar');
 var isMouseOverVideo = false;
 
 // Event-Listener für das Video
-// TODO: Video soll auch abgespielt werden, wenn man auf Playbutton oder um den Button klickt.
 meinKurzfilm.addEventListener('click', togglePlayPause);
 meinKurzfilm.addEventListener('play', onPlay);
 meinKurzfilm.addEventListener('pause', onPause);
