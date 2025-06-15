@@ -1,0 +1,362 @@
+body, html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    background-color: whitesmoke;
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+a {
+    color: whitesmoke;
+    font-weight: 300;
+    text-decoration: none;
+    font-family: "hobeaux", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    padding: 0px 40px 0px 40px;
+}
+
+a:hover {
+    color: yellowgreen;
+}
+
+#video, #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+#canvas {
+    z-index: 2; 
+    color: whitesmoke;
+}
+
+.cutout-text {
+    font-size: 60px;
+    font-weight: bold;
+    background-image: url('img/Ein-Stueck-Leben_COLOR.webm');
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent;
+}
+
+.content-all {
+    margin-top: 95vh;
+    max-width: 70vw; 
+}
+
+.kurzfilm {
+    width: 100%; /* Macht das Video so breit wie den video-wrapper */
+    display: block;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%; /* oder eine andere Größe, die Sie für das Video festgelegt haben */
+    margin: auto;
+}
+
+
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px; /* Anpassen nach Bedarf */
+    display: none; /* Standardmäßig versteckt */
+    color: white; /* Farbe des Symbols */
+    font-size: 5em;
+}
+
+/* Beispiel für Play- und Pause-Symbole (ersetzen Sie dies durch Ihre eigenen Symbole) */
+.video-overlay.play {
+    content: '▶'; 
+}
+
+.video-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none; /* Verhindert Klick-Events, wenn die Kontrollleiste ausgeblendet ist */
+    transition: opacity 0.5s;
+}
+
+.progress-container {
+    flex-grow: 1; /* Lässt den Progress-Container den verfügbaren Raum einnehmen */
+}
+
+.progress-bar {
+    height: 5px;
+    width: 0;
+    background: yellowgreen;
+    transition: width 0.25s;
+}
+
+#fullscreen-btn {
+    margin-left: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#fullscreen-btn:hover {
+    background: #444;
+}
+
+h1 {
+    font-family: "outfit", sans-serif;
+    font-size: 20vw;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+h2 {
+    font-family: "hobeaux", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: white; 
+    position: relative; 
+    display: inline-block; 
+}
+
+h2::before {
+    content: ""; 
+    position: absolute; 
+    left: -20%; 
+    width: 140%; 
+    height: 120%;
+    background-color: black; 
+    z-index: -1;
+    transform: rotate(-4deg); 
+}
+
+h3 {
+    font-family: "hobeaux", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: black;
+    padding-top: 30px;
+}
+
+p, li, dt, dd {
+    font-family: "kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: grey;
+}
+
+.content-section {
+    padding-top: 100px;
+}
+
+.content-bachtel {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.brainwritting {
+    width: 35vw;
+    border-radius: 10%;
+}
+
+.planung {
+    display: flex;
+    gap: 50px;
+    padding-top: 40px;
+}
+
+/* KARUSEL */
+
+.carousel {
+    position: relative;
+    padding-top: 30px;
+    width: 60vw;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-slides img {
+    width: 100%;
+    display: none;
+    border-radius: 50px;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+}
+
+.carousel .prev {
+    left: 0;
+}
+
+.carousel .next {
+    right: 0;
+}
+
+
+/* TEAM */
+
+.footer {
+    position: relative; 
+    width: 100vw; 
+    background-color: black;
+    /* padding: 20px; */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 200px;
+    padding-bottom: 200px;
+}
+
+dt {
+    grid-column: 1;
+    font-weight: bold;
+    color: white;
+    width: 200px;
+}
+
+dd {
+    grid-column: 2;
+    text-align: left;
+    color: white; 
+}
+
+.definition-list {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 5px; 
+    row-gap: 5px;
+}
+
+.team-container {
+    display: flex;
+    flex-direction: column;
+    width: auto; 
+    margin-right: auto; 
+    margin-left: auto;
+    max-width: 70vw;
+    padding-top: 50px;
+}
+
+.team-image {
+    height: 800px;
+    margin-top: 100px; 
+    margin-left: auto;
+}
+.team-image {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.team-image img {
+    width: 100%;
+    max-width: 70vw; 
+    border-radius: 50px;
+}
+
+.term-description {
+    display: contents;
+}
+
+.title-page {
+    display: none; 
+    padding-top: 30vh;
+    color: black; 
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+} 
+
+@media (max-width: 1250px) {
+    #canvas {
+      display: none;
+    }
+  
+    #video {
+      display: none;
+    }
+  
+    .title-page {
+      display: block;
+      width: 100%;
+    }
+
+    .content-all {
+        width: auto; 
+        margin-right: auto; 
+        margin-left: auto;
+        max-width: 70vw; 
+        margin-top: 25vh;
+    }
+
+    .content-bachtel {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .planung {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .definition-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .term-description {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    dt, dd {
+        grid-column: auto;
+        text-align: center;
+        width: 100%; 
+        margin: 0 0 0 0;
+    }
+    
+  }
+
+  @media (max-width: 800px) {
+    header {
+        display: none;
+    }
+  }
